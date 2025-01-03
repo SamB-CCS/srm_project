@@ -1,2 +1,2 @@
-django==5.0.1
+django==5.0.10
 django-formtools==2.5.1
