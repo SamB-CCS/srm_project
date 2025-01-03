@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <h1>Add Customer Information</h1>
+    <br />
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <br />
+        <button type="submit" class="btn btn-primary">Update Customer</button>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+
+    </form>
+
+</div>
+
+{% endblock %}

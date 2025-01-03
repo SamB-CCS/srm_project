@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<div class="col-lg-6 offset-md-4">
+  <div class="card text-bg-light mb-3" style="max-width: 40rem;">
+    <h5 class="card-header">Customer Details</h5>
+    <div class="card-body">
+      <h5 class="card-title"><strong>{{ customer_record.first_name }} {{ customer_record.last_name }}</strong></h5>
+      <br />
+      <p class="card-text">
+        <strong>Email: </strong>{{ customer_record.email }}<br />
+        <strong>Phone: </strong>{{ customer_record.phone }}<br />
+        <strong>Address: </strong>{{ customer_record.address }}<br />
+        <strong>City: </strong>{{ customer_record.city }}<br />
+        <strong>Country: </strong>{{ customer_record.country }}<br />
+        <strong>Postcode: </strong>{{ customer_record.postcode }}<br />
+        <strong>Created At: </strong>{{ customer_record.created_at }}<br />
+        <strong>ID: </strong>{{ customer_record.id }}<br />
+      </p>
+      <a href="{% url 'update_customer' customer_record.id %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+    </div>
+  </div>
+
+  <br />
+  <br />
+
+  <div class="card text-bg-light mb-3" style="max-width: 40rem;">
+    <h5 class="card-header">Supplier Information</h5>
+    <div class="card-body">
+      {% for supplier in suppliers %}
+      <h5 class="card-title"><strong>{{ supplier.supplier_name }}</strong></h5>
+      <br />
+      <p class="card-text">
+        <strong>Email: </strong>{{ supplier.supplier_email }}<br />
+        <strong>Phone: </strong>{{ supplier.supplier_phone }}<br />
+        <strong>Address: </strong>{{ supplier.supplier_address }}<br />
+        <strong>City: </strong>{{ supplier.supplier_city }}<br />
+        <strong>Country: </strong>{{ supplier.supplier_country }}<br />
+        <strong>Postcode: </strong>{{ supplier.supplier_postcode }}<br />
+        <strong>Created At: </strong>{{ supplier.created_at }}<br />
+        <strong>ID: </strong>{{ supplier.id }}<br />
+      </p>
+      <a href="{% url 'update_supplier' supplier.id %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <br />
+  <br />
+
+  <div class="card text-bg-light mb-3" style="max-width: 40rem;">
+    <h5 class="card-header">Supplier Details</h5>
+    <div class="card-body">
+      {% for detail in details %}
+      <h5 class="card-title"><strong> Organisation Details </strong></h5>
+      <br />
+      <p class="card-text">
+        <strong>Market Type: </strong>{{ detail.company_type }}<br />
+        <strong>Legal Form: </strong>{{ detail.legal_form }}<br />
+        <strong>VAT Number: </strong>{{ detail.vat_no }}<br />
+        <strong>Created At: </strong>{{ detail.created_at }}<br />
+        <strong>ID: </strong>{{ detail.id }}<br />
+      </p>
+      <a href="{% url 'update_detail' detail.id %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+      {% endfor %}
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class="card text-bg-light mb-3" style="max-width: 40rem;">
+    <h5 class="card-header">Supplier Details</h5>
+    <div class="card-body">
+      {% for exclusion in exclusions %}
+      <h5 class="card-title"><strong> Exclusion Details </strong></h5>
+      <br />
+      <p class="card-text">
+        <strong>Mandatory: </strong>{{ exclusion.mandatory }}<br />
+        <strong>Discretionary: </strong>{{ exclusion.discretionary }}<br />
+        <strong>Date of exclusion: </strong>{{ exclusion.exclusion_date }}<br />
+        <strong>Created At: </strong>{{ exclusion.created_at }}<br />
+        <strong>ID: </strong>{{ exclusion.id }}<br />
+      </p>
+      <a href="{% url 'update_exclusion' exclusion.id %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+      {% endfor %}
+    </div>
+  </div>
+  <br />
+  <br />
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <h1>Add Exclusion Information</h1>
+    <br />
+    <h5>Exclusion details only required if they happened within the last 10 years</h5>
+    <br />
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <br />
+        <button type="submit" class="btn btn-primary">Update Customer</button>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+
+    </form>
+
+</div>
+
+{% endblock %}

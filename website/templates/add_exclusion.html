@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="col-md-6 offset-md-3">
+    <h1>Add Exclusion Information</h1>
+    <br />
+    <h5>Exclusion details only required if they happened within the last 10 years</h5>
+    <br />
+    <form method="POST" action="{% url 'add_exclusion' %}">
+        {% csrf_token %}
+
+        {{ wizard.management_form }}
+        {{ wizard.form.as_p }}
+
+        <br />
+        <button type="submit" value="Submit" class="btn btn-success">Submit</button>
+        <button type="submit" name="wizard_goto_step" value="{{ wizard.steps.prev }}" class="btn btn-secondary"
+            formnovalidate="formnovalidate">Go to Previous Step</button>
+        <a href="{% url 'home' %}" id="backToHome" class="btn btn-danger">Back to Home</a>
+
+    </form>
+
+</div>
+
+<script>
+    document.getElementById('backToHome').addEventListener('click', function (e) {
+        if (!confirm('Are you sure you want to leave? All form data will be lost.')) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+{% endblock %}

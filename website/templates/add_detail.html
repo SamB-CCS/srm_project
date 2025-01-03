@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+<div class="col-md-6 offset-md-3">
+    <h1>Add Company Details</h1>
+    <br />
+
+    <form method="POST" action="{% url 'add_detail' %}">
+        {% csrf_token %}
+
+        {{ wizard.management_form }}
+        {{ wizard.form.as_p }}
+
+        <br />
+        <button type="submit" value="Next" class="btn btn-primary">Next</button>
+        <button type="submit" name="wizard_goto_step" value="{{ wizard.steps.prev }}" class="btn btn-secondary"
+            formnovalidate="formnovalidate">Go to Previous Step</button>
+        <a href="{% url 'home' %}" id="backToHome" class="btn btn-danger">Back to Home</a>
+
+    </form>
+
+</div>
+
+<script>
+    document.getElementById('backToHome').addEventListener('click', function (e) {
+        if (!confirm('Are you sure you want to leave? All form data will be lost.')) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+{% endblock %}

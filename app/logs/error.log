@@ -1,0 +1,100 @@
+Failed login attempt with username: sfgsfgs
+User not logged in to view update customer
+User not logged in to view update customer1
+User not logged in to view customer record  1
+User not logged in to view customer record  3
+User not logged in to view customer record  30
+Failed login attempt with username: test
+Failed login attempt with username: test1
+User not logged in to view update customer 1
+Failed login attempt with username: admin
+Failed login attempt with username: admin
+Failed login attempt with username: admin
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sam.boothroyd/env/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sam.boothroyd/env/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sam.boothroyd/Desktop/repositories/QA-Project/website/views.py", line 107, in home
+    is_blocked, attempts_remaining, block_time = check_login_attempts(request, username)
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sam.boothroyd/Desktop/repositories/QA-Project/website/views.py", line 65, in check_login_attempts
+    block_time = cache.ttl(block_key)
+                 ^^^^^^^^^
+  File "/Users/sam.boothroyd/env/lib/python3.11/site-packages/django/utils/connection.py", line 15, in __getattr__
+    return getattr(self._connections[self._alias], item)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'LocMemCache' object has no attribute 'ttl'
+"POST / HTTP/1.1" 500 70646
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: test
+Failed login attempt with username: admin'; --
+User not logged in to view customer record 10

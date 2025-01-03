@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+  <br />
+  <br />
+  <h2>Are you sure you want to log out?</h2>
+  <form method="post" action="{% url 'user_logout' %}">
+    <br />
+    <br />
+    {% csrf_token %}
+    <button type="submit" name="confirm_logout" value="True" class="btn btn-danger">Yes, Log Me Out</button>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}
