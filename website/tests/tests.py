@@ -2,7 +2,7 @@ import pytest
 from django.test import Client
 from django.contrib.auth.models import User
 from django.urls import reverse
-from .forms import (
+from website.forms import (
     SignupForm,
     AddCustomerForm,
     AddSupplierForm,
