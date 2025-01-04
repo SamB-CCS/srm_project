@@ -9,6 +9,7 @@ exclude =
     *.egg-info,
     .eggs,
     migrations
+    env
 extend-ignore = E203, W503
 max-complexity = 10
 per-file-ignores =

@@ -13,8 +13,6 @@ from formtools.wizard.views import SessionWizardView
 from .models import Customer, Supplier, Detail, Exclusion
 import logging
 from django.core.cache import cache
-from django.utils import timezone
-from datetime import timedelta
 
 logger = logging.getLogger("django")
 
@@ -29,6 +27,7 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
+
 def check_login_attempts(request, username):
     """
     Check if user has exceeded login attempts
@@ -36,22 +35,19 @@ def check_login_attempts(request, username):
     """
     MAX_ATTEMPTS = 10
     BLOCK_TIME = 30  # minutes
-    
     # Create a unique key for this IP and username combination
     client_ip = get_client_ip(request)
     cache_key = f"login_attempts_{client_ip}_{username}"
-    block_key = f"login_blocked_{client_ip}_{username}"
-    
-    # Check if user is currently blocked
+    block_key = f"login_blocked_{client_ip}_{username}"  # Check if user is currently blocked
     is_blocked = cache.get(block_key, False)
     if is_blocked:
         block_time = BLOCK_TIME * 60  # Convert minutes to seconds
         return True, 0, block_time // 60  # Convert seconds to minutes
-    
     # Get current attempts
     attempts = cache.get(cache_key, 0)
-    
+
     return False, MAX_ATTEMPTS - attempts, 0
+
 
 def increment_login_attempts(request, username):
     """
@@ -60,14 +56,11 @@ def increment_login_attempts(request, username):
     """
     MAX_ATTEMPTS = 10
     BLOCK_TIME = 30  # minutes
-    
     client_ip = get_client_ip(request)
     cache_key = f"login_attempts_{client_ip}_{username}"
     block_key = f"login_blocked_{client_ip}_{username}"
-    
     # Increment attempts
     attempts = cache.get(cache_key, 0) + 1
-    
     if attempts >= MAX_ATTEMPTS:
         # Block the user
         cache.set(block_key, True, timeout=BLOCK_TIME * 60)  # Convert minutes to seconds
@@ -79,16 +72,14 @@ def increment_login_attempts(request, username):
         cache.set(cache_key, attempts, timeout=24 * 60 * 60)  # 24 hour expiry
         return False, MAX_ATTEMPTS - attempts, 0
 
+
 def home(request):
     customers = Customer.objects.all()
-    
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
-        
         # Check if user is blocked
         is_blocked, attempts_remaining, block_time = check_login_attempts(request, username)
-        
         if is_blocked:
             messages.error(
                 request,
@@ -96,9 +87,7 @@ def home(request):
                 f"Please try again in {block_time} minutes."
             )
             return redirect("home")
-        
         user = authenticate(request, username=username, password=password)
-        
         if user is not None:
             login(request, user)
             # Reset any login attempt counters on successful login
@@ -109,9 +98,7 @@ def home(request):
         else:
             # Increment failed attempts and check if user should be blocked
             is_blocked, attempts_remaining, block_time = increment_login_attempts(request, username)
-            
             logger.error(f"Failed login attempt with username: {username}")
-            
             if is_blocked:
                 messages.error(
                     request,
@@ -124,9 +111,7 @@ def home(request):
                     f"Incorrect email or password. {attempts_remaining} attempts remaining "
                     f"before temporary lockout."
                 )
-            
             return redirect("home")
-            
     return render(request, "home.html", {"customers": customers})
 
 
@@ -137,7 +122,6 @@ def user_logout(request):
             logout(request)
             messages.success(request, "You have been logged out...")
             return redirect("home")
-
     return render(request, "logout_confirm.html")
 
 
