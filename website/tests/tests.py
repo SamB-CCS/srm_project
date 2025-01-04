@@ -147,7 +147,7 @@ class TestAddCustomerView:
     @pytest.fixture
     def authenticated_client(self):
         client = Client()
-        user = User.objects.create_user(username="testuser", password="testpassword")
+        User.objects.create_user(username="testuser", password="testpassword")
         client.login(username="testuser", password="testpassword")
         return client
 
