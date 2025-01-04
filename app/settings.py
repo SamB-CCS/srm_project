@@ -11,12 +11,43 @@ os.makedirs(LOGS_DIR, exist_ok=True)  # Create the logs directory if it doesn't 
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-7_a97y29m3r^2%=3o9i@y12-_g%_fg)q(!jq$)$y=970ge9ltt"
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*.uk',
+    '*.co.uk',
+    '*.org.uk',
+    '*.gov.uk',
+    '*.ac.uk',
+    '*.nhs.uk',
+    '*.mod.uk',
+    '*.police.uk',
+    '*.parliament.uk',
+    '*.judiciary.uk',
+    '*.parliament.scot',
+    '*.gov.scot',
+    '*.gov.wales',
+    '*.gov.ni',
+    '*.nic.uk',
+    '*.ukfirst.co.uk',
+    '*.uknet.co.uk',
+    '*.ukoffice.co.uk',
+    '*.ukplc.co.uk',
+    '*.ukltd.co.uk',
+    '*.ukbiz.co.uk',
+    '*.ukcompany.co.uk',
+    '*.ukbusiness.co.uk',
+    '*.ukfirm.co.uk',
+    '*.ukltd.uk',
+    '*.ukplc.uk',
+    '*.ukbiz.uk',
+    '*.ukcompany.uk',
+    '*.ukbusiness.uk',
+    '*.ukfirm.uk',
+    ]
 
 
 # Application definition
