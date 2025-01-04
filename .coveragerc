@@ -1,5 +1,5 @@
 [run]
-source = srm_project
+source = app
 omit =
     */migrations/*
     */tests/*
