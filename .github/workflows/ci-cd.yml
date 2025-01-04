@@ -7,7 +7,7 @@ on:
 env:
   PYTHON_VERSION: '3.11.0'
   RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-  DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+  SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
 jobs:
   test:
     runs-on: ubuntu-latest
