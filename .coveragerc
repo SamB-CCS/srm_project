@@ -1,0 +1,25 @@
+[run]
+source = srm_project
+omit =
+    */migrations/*
+    */tests/*
+    */venv/*
+    manage.py
+    */wsgi.py
+    */asgi.py
+    */settings.py
+    */urls.py
+    */__init__.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if self.debug:
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    pass
+    raise ImportError
+    except ImportError:
+fail_under = 80
+show_missing = True
