@@ -73,7 +73,7 @@ python manage.py runserver
 
 To run the test suite, use the following command:
 ```bash
-python manage.py test
+pytest
 ```
 ## Contributing
 
