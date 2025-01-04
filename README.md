@@ -14,12 +14,12 @@ Before running this application, ensure you have the following installed:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/SamB-CCS/QA-Project
+git clone https://github.com/SamB-CCS/srm_project
 ```
 
 2. Navigate to the project directory:
 ```bash
-cd QA-Project
+cd srm_project
 ```
 
 3. Create a virtual environment (recommended):
@@ -54,7 +54,7 @@ Follow the prompts to set up a superuser account.
 
 ## Configuration
 
-Before running the application, you may need to configure some settings. Open the `QA_Project/settings.py` file and adjust the following variables according to your needs:
+Before running the application, you may need to configure some settings. Open the `srm_project/settings.py` file and adjust the following variables according to your needs:
 
 - `SECRET_KEY`: Set a secure secret key for your application.
 - `DEBUG`: Set to `False` in production environments.
