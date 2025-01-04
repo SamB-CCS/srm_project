@@ -17,37 +17,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '*.uk',
-    '*.co.uk',
-    '*.org.uk',
-    '*.gov.uk',
-    '*.ac.uk',
-    '*.nhs.uk',
-    '*.mod.uk',
-    '*.police.uk',
-    '*.parliament.uk',
-    '*.judiciary.uk',
-    '*.parliament.scot',
-    '*.gov.scot',
-    '*.gov.wales',
-    '*.gov.ni',
-    '*.nic.uk',
-    '*.ukfirst.co.uk',
-    '*.uknet.co.uk',
-    '*.ukoffice.co.uk',
-    '*.ukplc.co.uk',
-    '*.ukltd.co.uk',
-    '*.ukbiz.co.uk',
-    '*.ukcompany.co.uk',
-    '*.ukbusiness.co.uk',
-    '*.ukfirm.co.uk',
-    '*.ukltd.uk',
-    '*.ukplc.uk',
-    '*.ukbiz.uk',
-    '*.ukcompany.uk',
-    '*.ukbusiness.uk',
-    '*.ukfirm.uk',
-    ]
+    'srm-project.onrender.com',
+    'localhost',  # for local development
+    '127.0.0.1',  # also for local development
+]
 
 
 # Application definition
