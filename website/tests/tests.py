@@ -120,6 +120,7 @@ class TestAddDetailForm:
         form = AddDetailForm(data=form_data)
         assert not form.is_valid()
 
+
 @pytest.mark.django_db
 class TestAddExclusionForm:
     def test_valid_form(self):
@@ -140,12 +141,13 @@ class TestAddExclusionForm:
         form = AddExclusionForm(data=form_data)
         assert not form.is_valid()
 
+
 @pytest.mark.django_db
 class TestAddCustomerView:
     @pytest.fixture
     def authenticated_client(self):
         client = Client()
-        user = User.objects.create_user(username="testuser", password="testpassword")
+        User.objects.create_user(username="testuser", password="testpassword")
         client.login(username="testuser", password="testpassword")
         return client
 
