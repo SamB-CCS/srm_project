@@ -10,7 +10,7 @@ env:
   SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     
     steps:
     - uses: actions/checkout@v3
@@ -52,7 +52,7 @@ jobs:
   deploy:
     needs: test
     if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     
     steps:
     - name: Deploy to Render
