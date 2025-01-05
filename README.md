@@ -6,7 +6,7 @@ This website application is for the Software Engineering & Agile module of the D
 
 Before running this application, ensure you have the following installed:
 
-- Python (version 3.11) test
+- Python (version 3.11)
 - pip (Python package installer)
 - Git (version control)
 
