@@ -51,7 +51,7 @@ jobs:
       
   deploy:
     needs: test
-    if: github.ref == 'refs/heads/main' || github.event.pull_request.merged == true
+    if: github.ref == 'refs/heads/main' || github.event_name == 'pull_request_target'
     runs-on: ubuntu-22.04
     
     steps:
