@@ -11,12 +11,12 @@ os.makedirs(LOGS_DIR, exist_ok=True)  # Create the logs directory if it doesn't 
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret! Comment out below secret key when testing locally.
-# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', None)
-# if not SECRET_KEY:
-#     raise ValueError("No SECRET_KEY set in environment variables")
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', None)
+if not SECRET_KEY:
+    raise ValueError("No SECRET_KEY set in environment variables")
 
-# Uncomment this secret key for local testing!
-SECRET_KEY = 'test'
+# # Uncomment this secret key for local testing!
+# SECRET_KEY = 'test'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
