@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-#Security Settings
+# Security Settings
 SECURE_HSTS_SECONDS = 31536000  # 1 year
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
